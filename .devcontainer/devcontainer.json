@@ -1,0 +1,29 @@
+{
+  "name": "anomaly-detection-arena",
+  "image": "mcr.microsoft.com/devcontainers/python:3.11",
+  "features": {
+    "ghcr.io/devcontainers/features/github-cli:1": {}
+  },
+  "postCreateCommand": "pip install uv && uv sync --all-extras && uv run python -m ipykernel install --user --name anomaly-arena",
+  "forwardPorts": [8501, 8888],
+  "portsAttributes": {
+    "8501": {"label": "Streamlit"},
+    "8888": {"label": "JupyterLab"}
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "ms-toolsai.jupyter",
+        "charliermarsh.ruff"
+      ],
+      "settings": {
+        "python.defaultInterpreterPath": ".venv/bin/python",
+        "editor.formatOnSave": true,
+        "[python]": {
+          "editor.defaultFormatter": "charliermarsh.ruff"
+        }
+      }
+    }
+  }
+}

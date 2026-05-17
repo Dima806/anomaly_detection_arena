@@ -1,0 +1,35 @@
+contamination:
+  credit_card: 0.0017
+  network: 0.02
+  manufacturing: 0.015
+
+detectors:
+  isolation_forest:
+    n_estimators: 100
+    n_jobs: 2
+    random_state: 42
+  lof:
+    n_neighbors: 20
+    n_jobs: 2
+  one_class_svm:
+    kernel: rbf
+    nu: 0.05
+    max_samples: 10000
+  dbscan:
+    eps: 0.5
+    min_samples: 5
+  mahalanobis:
+    chi2_percentile: 0.975
+  autoencoder:
+    hidden_dim: 32
+    epochs: 50
+    batch_size: 256
+    lr: 0.001
+    random_state: 42
+
+data:
+  credit_card_url: "https://storage.googleapis.com/download.tensorflow.org/data/creditcard.csv"
+  credit_card_path: "data/creditcard.csv"
+  network_n_samples: 10000
+  manufacturing_n_samples: 8000
+  random_seed: 42

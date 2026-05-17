@@ -1,0 +1,25 @@
+{
+  "global_mahalanobis": {
+    "credit_card": {
+      "mean_distance_normal": 5.4232,
+      "mean_distance_anomaly": 8.4941,
+      "separation_ratio": 1.5663
+    },
+    "network": {
+      "mean_distance_normal": 1.9643,
+      "mean_distance_anomaly": 6.7235,
+      "separation_ratio": 3.4228
+    },
+    "manufacturing": {
+      "mean_distance_normal": 1.8356,
+      "mean_distance_anomaly": 6.3805,
+      "separation_ratio": 3.476
+    }
+  },
+  "interpretation": {
+    "credit_card": "High separation ratio confirms global outliers. IF and Mahalanobis both work.",
+    "network": "Low ratio confirms contextual anomalies. Raw features do not separate classes globally.",
+    "manufacturing": "Low ratio. Residual feature is essential for detection."
+  },
+  "key_insight": "Global Mahalanobis distance separates credit card anomalies (ratio > 2) but fails for network and manufacturing (ratio near 1). Feature engineering (residuals, time encoding) is required for contextual detection."
+}

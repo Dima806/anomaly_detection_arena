@@ -38,7 +38,7 @@ test-cov: ## pytest with coverage + HTML report in htmlcov/
 notebooks: data ## Execute all notebooks sequentially
 	@for nb in notebooks/0*.ipynb; do \
 		echo "▶ Executing $$nb ..."; \
-		uv run jupyter nbconvert --to notebook --execute \
+		uv run jupyter nbconvert --to notebook --execute --inplace \
 			--ExecutePreprocessor.timeout=300 "$$nb" || exit 1; \
 	done
 	@echo "\n✅ All notebooks executed."
